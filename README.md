@@ -30,6 +30,7 @@ The backend is built using **FastAPI** and **SQLModel**, containerized with **Do
 ---
 
 ## 📦 Project Structure
+```text
 
 ├── main.py
 ├── Dockerfile
