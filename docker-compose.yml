@@ -1,0 +1,27 @@
+services:
+  backend:
+    build: .
+    image: backend
+    expose:
+      - "8080" 
+    networks:
+      - app-network
+
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile.nginx
+    image: nginx-reverse-proxy
+    ports:
+      - "80:80" 
+      - "443:443" 
+    depends_on:
+      - backend
+    networks:
+      - app-network
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt:ro 
+
+networks:
+  app-network:
+    driver: bridge
