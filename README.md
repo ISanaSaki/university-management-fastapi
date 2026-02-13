@@ -231,53 +231,7 @@ GET /students/?offset=0&limit=50
 GET /professors/?offset=10&limit=20
 GET /courses/?offset=0&limit=100
 ```
-
 ---
-
-## 🚢 Production Deployment Notes
-
-### Environment Variables
-For production deployment, consider adding:
-- Database connection strings
-- Secret keys for authentication (if added)
-- Logging configuration
-- CORS settings
-
-### SSL/HTTPS
-The Nginx configuration is ready for SSL certificates. To enable HTTPS:
-1. Add SSL certificates to `/etc/letsencrypt/`
-2. Update `nginx.conf` to listen on port 443
-3. Configure SSL certificate paths
-
-### Scaling
-- The Docker setup supports horizontal scaling
-- Nginx can be configured for load balancing
-- Database can be migrated to PostgreSQL for production
-
----
-
-## 🐛 Troubleshooting
-
-### Common Issues
-
-1. **Port already in use**
-   ```bash
-   # Check what's using port 80
-   sudo lsof -i :80
-   # Or change ports in docker-compose.yml
-   ```
-
-2. **Database permission issues**
-   ```bash
-   # Ensure database file is writable
-   chmod 664 database.db
-   ```
-
-3. **Docker build failures**
-   ```bash
-   # Clear Docker cache
-   docker system prune -a
-   ```
 
 ### Logs
 ```bash
@@ -292,37 +246,3 @@ docker-compose logs nginx
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
-
-### Development Guidelines
-1. Fork the repository
-2. Create a feature branch
-3. Add tests for new functionality
-4. Ensure all validations are in place
-5. Update documentation as needed
-6. Submit a pull request
-
----
-
-## 📄 License
-
-This project is developed for educational purposes and academic use.
-
----
-
-## 🆘 Support
-
-For technical issues or questions:
-1. Check the API documentation at `/docs`
-2. Review the validation rules in this README
-3. Check Docker logs for deployment issues
-4. Open an issue with detailed error information
-
----
-
-## 🔗 Quick Links
-
-- **API Documentation:** http://localhost/docs
-- **Health Check:** http://localhost/
-- **Student Endpoint:** http://localhost/students/
-- **Professor Endpoint:** http://localhost/professors/
-- **Course Endpoint:** http://localhost/courses/
