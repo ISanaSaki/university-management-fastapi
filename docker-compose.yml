@@ -6,6 +6,7 @@ services:
       - "8080" 
     networks:
       - app-network
+    restart: always
 
   nginx:
     build:
@@ -21,6 +22,7 @@ services:
       - app-network
     volumes:
       - /etc/letsencrypt:/etc/letsencrypt:ro 
+    restart: always
 
 networks:
   app-network:
